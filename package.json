@@ -1,0 +1,71 @@
+{
+  "name": "eleventy-starter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static pages with Eleventy 2",
+  "keywords": [
+    "eleventy",
+    "jamstack",
+    "alpinejs",
+    "vite"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/casoon/eleventy-tailwind-starter.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Jörn Seidel",
+    "email": "joern.seidel@casoon.de",
+    "url": "https://www.casoon.de/"
+  },
+  "main": "_site/index.html",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production && run-s build:*",
+    "build:eleventy": "npx @11ty/eleventy",
+    "build:css": "tailwindcss -i src/css/tailwind.css -o _site/assets/css/styles.css --postcss",
+    "check-links": "npx check-html-links _site",
+    "dev": "cross-env NODE_ENV=development && run-p dev:*",
+    "dev:eleventy": "npx @11ty/eleventy --serve --incremental",
+    "dev:css": "tailwindcss -i src/css/tailwind.css -o _site/assets/css/styles.css --watch --postcss",
+    "lint": "eslint . --ext .js --cache",
+    "format": "prettier --write '**/*.{js,css,html,md}'"
+  },
+  "dependencies": {
+    "alpinejs": "^3.0.1",
+    "core-js": "^3.20.2",
+    "speedlify-score": "^2.0.2"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0-canary.18",
+    "@11ty/eleventy-img": "^2.0.1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
+    "autoprefixer": "^10.4.13",
+    "clean-css": "^5.3.1",
+    "common-tags": "^1.8.2",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.29.0",
+    "eslint-utils": "^3.0.0",
+    "html-minifier": "^4.0.0",
+    "html-validate": "^7.10.1",
+    "luxon": "^3.1.1",
+    "markdown-it": "^13.0.1",
+    "markdown-it-anchor": "^8.6.5",
+    "npm-run-all": "^4.1.5",
+    "path": "^0.12.7",
+    "postcss": "^8.4.19",
+    "postcss-import": "^15.0.1",
+    "prettier": "^2.8.0",
+    "ramda": "^0.28.0",
+    "remove": "^0.1.5",
+    "slugify": "^1.6.5",
+    "tailwindcss": "^3.2.4",
+    "terser": "^5.16.1",
+    "cssnano": "^5.1.14"
+  },
+  "engines": {
+    "node": ">=16.x.x",
+    "npm": ">=8.x.x"
+  }
+}
