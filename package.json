@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/casoon/eleventy-tailwind-starter.git"
+    "url": "git://github.com/casoon/eleventy-starter.git"
   },
   "license": "MIT",
   "author": {
@@ -23,12 +23,13 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production && run-s build:*",
     "build:eleventy": "npx @11ty/eleventy",
-    "build:css": "tailwindcss -i src/css/tailwind.css -o _site/assets/css/styles.css --postcss",
     "check-links": "npx check-html-links _site",
     "dev": "cross-env NODE_ENV=development && run-p dev:*",
     "dev:eleventy": "npx @11ty/eleventy --serve --incremental",
-    "dev:css": "tailwindcss -i src/css/tailwind.css -o _site/assets/css/styles.css --watch --postcss",
     "lint": "eslint . --ext .js --cache",
+    "lint:html": "node-w3c-validator --input _site/**/*.html --format lint --verbose --errors-only",
+    "lint:css": "stylelint src/assets/css/**/*.css",
+    "lint:javascript": "eslint eleventy.config.js src/**/*.js",
     "format": "prettier --write '**/*.{js,css,html,md}'"
   },
   "dependencies": {
@@ -45,6 +46,7 @@
     "common-tags": "^1.8.2",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
+    "esbuild": "^0.16.6",
     "eslint": "^8.29.0",
     "eslint-utils": "^3.0.0",
     "html-minifier": "^4.0.0",
@@ -52,17 +54,21 @@
     "luxon": "^3.1.1",
     "markdown-it": "^13.0.1",
     "markdown-it-anchor": "^8.6.5",
+    "node-w3c-validator": "^2.0.2",
     "npm-run-all": "^4.1.5",
     "path": "^0.12.7",
     "postcss": "^8.4.19",
     "postcss-import": "^15.0.1",
+    "postcss-csso": "^6.0.1",
+    "postcss-media-minmax": "^5.0.0",
     "prettier": "^2.8.0",
     "ramda": "^0.28.0",
     "remove": "^0.1.5",
     "slugify": "^1.6.5",
-    "tailwindcss": "^3.2.4",
     "terser": "^5.16.1",
-    "cssnano": "^5.1.14"
+    "cssnano": "^5.1.14",
+    "stylelint": "^14.12.0",
+    "stylelint-order": "^5.0.0"
   },
   "engines": {
     "node": ">=16.x.x",
