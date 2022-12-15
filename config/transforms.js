@@ -8,6 +8,8 @@ module.exports = {
 				useShortDoctype: true,
 				removeComments: true,
 				collapseWhitespace: true,
+				collapseBooleanAttributes: true,
+				decodeEntities: true
 			});
 			return minified;
 		}

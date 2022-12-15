@@ -10,6 +10,8 @@ const postcssMediaMinmax = require('postcss-media-minmax');
 const autoprefixer = require('autoprefixer');
 const postcssCsso = require('postcss-csso');
 
+const purgecss = require('@fullhuman/postcss-purgecss')
+
 const posts = require("./config/posts");
 const filters = require("./config/filters");
 const shortcodes = require("./config/shortcodes");
@@ -45,6 +47,9 @@ module.exports = function (eleventyConfig) {
                     postcssMediaMinmax,
                     autoprefixer,
                     postcssCsso,
+                    purgecss({
+                        content: ['./src/**/*.njk', './src/assets/js/**/*.js',]
+                    })
                 ]).process(content, {
                     from: path,
                 });
@@ -61,6 +66,9 @@ module.exports = function (eleventyConfig) {
                 postcssMediaMinmax,
                 autoprefixer,
                 postcssCsso,
+                purgecss({
+                    content: ['./src/**/*.njk']
+                })
             ]).process(content, {
                 from: path,
             }).then((output) => {

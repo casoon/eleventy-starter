@@ -1,9 +1,6 @@
 const Image = require("@11ty/eleventy-img");
 
 module.exports = {
-	link: function (url, text) {
-		return "<a href='" + url + "'>" + text + " </a>";
-	},
 	image: async function (src, alt, width, height) {
 		if (alt === undefined) {
 			throw new Error(`Missing \`alt\` on myImage from: ${src}`);

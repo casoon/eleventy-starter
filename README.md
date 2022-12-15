@@ -1,10 +1,9 @@
 # Eleventy Template 
-This is a sample Eleventy Tailwind starter template for building fully static site using 11ty.
+This is a sample Eleventy starter template for building fully static site using 11ty.
 
 ## Features
 
 - Eleventy 2
-- Tailwind 3
 - Alpine.js 3
 
 ### Install Dependencies

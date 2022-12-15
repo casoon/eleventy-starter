@@ -1,6 +1,5 @@
 const R = require("ramda");
 const { DateTime } = require("luxon");
-const htmlmin = require("html-minifier");
 
 const markdown = require("markdown-it")({
 	html: true,
